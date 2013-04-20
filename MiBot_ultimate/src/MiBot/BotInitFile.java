@@ -24,9 +24,8 @@ public class BotInitFile
 		//Connect to localhost (if the server was on another machine could here indicate IP address)
 		bot_entity.connect("localhost",27910);
 		
-		//Testing git
 		
-		//KUPA MA POJMA
+		//Dela
 	}
 	
 }
