@@ -25,11 +25,6 @@ public class BotInitFile
 		bot_entity.connect("localhost",27910);
 		
 		
-		//Dela
-		
-		//PONOVNO
-		
-		//In ponovno
 	}
 	
 }
