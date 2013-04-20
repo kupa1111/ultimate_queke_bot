@@ -112,7 +112,7 @@ public abstract class BOTUtils extends PollingBot {
 			if (!file.exists()) {
 				throw new Exception("Unable to find demp file [Q2HOME\\baseq2\\demos\\" + demoFileName + "]");
 			}
-			generateWaypointMap(fname, noWaypoints, true);
+			generateWaypointMap(fname, (float)noWaypoints);
 		}
 		catch (Exception ex) {
 			ex.printStackTrace();
@@ -480,7 +480,7 @@ public abstract class BOTUtils extends PollingBot {
 	*/
 	public boolean isEnemyVisible() {
 		try {
-			Waypoint dest = findClosestEnemy();
+			Waypoint dest = findClosestOpponent();
 			if (dest == null) {
 				return false;	
 			}
