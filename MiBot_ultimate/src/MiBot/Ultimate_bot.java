@@ -65,7 +65,7 @@ public final class Ultimate_bot extends ObserverBot
 /*-------------------------------------------------------------------*/
 	public Ultimate_bot(String botName, String botSkin)
 	{
-		super((botName == null ? "MiSampleObserverBot" : botName), botSkin);
+		super((botName == null ? "Ultimate_bot" : botName), botSkin);
 		initBot();
 	}
 
@@ -78,7 +78,7 @@ public final class Ultimate_bot extends ObserverBot
 /*-------------------------------------------------------------------*/
 	public Ultimate_bot(String botName, String botSkin, boolean trackInv)
 	{
-		super((botName == null ? "MiSampleObserverBot" : botName), botSkin, trackInv);
+		super((botName == null ? "Ultimate_bot" : botName), botSkin, trackInv);
 		initBot();
 	}
 
@@ -93,7 +93,7 @@ public final class Ultimate_bot extends ObserverBot
 /*-------------------------------------------------------------------*/
 	public Ultimate_bot(String botName, String botSkin, boolean highThreadSafety, boolean trackInv)
 	{
-		super((botName == null ? "MiSampleObserverBot" : botName), botSkin, highThreadSafety, trackInv);
+		super((botName == null ? "Ultimate_bot" : botName), botSkin, highThreadSafety, trackInv);
 		initBot();
 	}
 
@@ -109,7 +109,7 @@ public final class Ultimate_bot extends ObserverBot
 /*-------------------------------------------------------------------*/
 	public Ultimate_bot(String botName, String botSkin, String password, boolean highThreadSafety, boolean trackInv)
 	{
-		super((botName == null ? "MiSampleObserverBot" : botName), botSkin, password, highThreadSafety, trackInv);
+		super((botName == null ? "Ultimate_bot" : botName), botSkin, password, highThreadSafety, trackInv);
 		initBot();
 	}
 
@@ -131,7 +131,7 @@ public final class Ultimate_bot extends ObserverBot
 /*-------------------------------------------------------------------*/
 	public Ultimate_bot(String botName, String botSkin, int recvRate, int msgLevel, int fov, int hand, String password, boolean highThreadSafety, boolean trackInv)
 	{
-		super((botName == null ? "MiSampleObserverBot" : botName), botSkin, recvRate, msgLevel, fov, hand, password, highThreadSafety, trackInv);
+		super((botName == null ? "Ultimate_bot" : botName), botSkin, recvRate, msgLevel, fov, hand, password, highThreadSafety, trackInv);
 		initBot();
 	}
 

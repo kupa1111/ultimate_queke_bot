@@ -19,12 +19,14 @@ public class BotInitFile
 		System.setProperty("QUAKE2", quake2_path); 
 		
 		//Initialize the bot
-		bot_entity = new Ultimate_bot("Domen","female/athena");
+		bot_entity = new Ultimate_bot("Aljaz","female/athena");
 		
 		//Connect to localhost (if the server was on another machine could here indicate IP address)
 		bot_entity.connect("localhost",27910);
 		
 		//Testing git
+		
+		//KUPA NIMA POJMA
 	}
 	
 }
