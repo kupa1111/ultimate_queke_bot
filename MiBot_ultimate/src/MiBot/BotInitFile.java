@@ -28,6 +28,8 @@ public class BotInitFile
 		//Dela
 		
 		//PONOVNO
+		
+		//In ponovno
 	}
 	
 }
