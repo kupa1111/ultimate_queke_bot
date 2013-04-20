@@ -32,7 +32,7 @@ public final class Ultimate_bot extends ObserverBot
 	private Vector3f posmapa = new Vector3f();
 	private Vector3f prevposmapa = new Vector3f(0,0,0);
 	
-	//For movment
+	//For movement
 	private Vector3f DirMov = new Vector3f();
 	private Vector3f DirVista = new Vector3f();
 
