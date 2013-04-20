@@ -57,7 +57,7 @@ public class StateMachine
 		this.selim = selim;
 		this.world = world;
 		
-		if(selim != null && selim.checkBotStatus(this.world))
+		if(selim != null && selim.checkBotStatus(this.world)==false)
 		{
 			// Execute current state
 			if(currentState != null)
