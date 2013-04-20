@@ -26,7 +26,7 @@ public class BotInitFile
 		
 		//Testing git
 		
-		//KUPA NIMA POJMA
+		//KUPA MA POJMA
 	}
 	
 }
