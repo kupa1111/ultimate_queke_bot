@@ -1,6 +1,6 @@
 package bot.state;
 
-import bot.Selim;
+import bot.UltimateBot;
 import bot.Script;
 import soc.qase.state.World;
 
@@ -31,46 +31,46 @@ public class Attack extends State
 	
 	
 	@Override
-	public void enter(Selim selim, World world)
+	public void enter(UltimateBot UltimateBot, World world)
 	{
-		if(Selim.DEBUG_MODE) System.out.println("ENTERED Attack STATE");
+		if(UltimateBot.DEBUG_MODE) System.out.println("ENTERED Attack STATE");
 	}
 
 	
 	@Override
-	public void execute(Selim selim, World world)
+	public void execute(UltimateBot UltimateBot, World world)
 	{
-		if(Selim.DEBUG_MODE) System.out.println("EXECUTING Attack STATE");
+		if(UltimateBot.DEBUG_MODE) System.out.println("EXECUTING Attack STATE");
 		
 		// If script says FLEE then change global state to Flee
-		if(Script.getInstance().actionDecider(selim) == Script.FLEE)
+		if(Script.getInstance().actionDecider(UltimateBot) == Script.FLEE)
 		{
-			selim.getFSM().setCurrentState(Flee.getInstance());
-			//exit(selim, world);
+			UltimateBot.getFSM().setCurrentState(Flee.getInstance());
+			//exit(UltimateBot, world);
 		}
 		
 		// If all conditions OK, than ATTACK!
-		if(selim.isEnemyVisible())  
-		   // && Script.getInstance().actionDecider(selim) == Script.ATTACK)
+		if(UltimateBot.isEnemyVisible())  
+		   // && Script.getInstance().actionDecider(UltimateBot) == Script.ATTACK)
 		{	
-			selim.attack(world, true); // Attack
+			UltimateBot.attack(world, true); // Attack
 			
 			// If run out of ammo, try to select the best weapon
-			if(selim.isAMMO_LOW()==true)
-				selim.selectBestWeapon();  
+			if(UltimateBot.isAMMO_LOW()==true)
+				UltimateBot.selectBestWeapon();  
 		}
 		
 		else
-			exit(selim, world);
+			exit(UltimateBot, world);
 	}
 
 	
 	@Override
-	public void exit(Selim selim, World world)
+	public void exit(UltimateBot UltimateBot, World world)
 	{
-		if(Selim.DEBUG_MODE) System.out.println("EXIT Attack STATE");
+		if(UltimateBot.DEBUG_MODE) System.out.println("EXIT Attack STATE");
 		
-		selim.attack(world, false); // Stop attack
-		selim.normalizeBot(); // Normalize bot movements. 
+		UltimateBot.attack(world, false); // Stop attack
+		UltimateBot.normalizeBot(); // Normalize bot movements. 
 	}
 }

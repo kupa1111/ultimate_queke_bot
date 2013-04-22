@@ -1,7 +1,7 @@
 package bot.state;
 
 import bot.Script;
-import bot.Selim;
+import bot.UltimateBot;
 import soc.qase.state.World;
 
 /**
@@ -30,36 +30,36 @@ public class Flee extends State
 	
 	
 	@Override
-	public void enter(Selim selim, World world)
+	public void enter(UltimateBot UltimateBot, World world)
 	{
-		if(Selim.DEBUG_MODE) System.out.println("ENTERED Flee STATE");
+		if(UltimateBot.DEBUG_MODE) System.out.println("ENTERED Flee STATE");
 	}
 
 	
 	@Override
-	public void execute(Selim selim, World world) 
+	public void execute(UltimateBot UltimateBot, World world) 
 	{
-		if(Selim.DEBUG_MODE) System.out.println("EXECUTING Flee STATE");
+		if(UltimateBot.DEBUG_MODE) System.out.println("EXECUTING Flee STATE");
 		
 		// If script says ATTACK then change global state to Attack
-		if(Script.getInstance().actionDecider(selim) != Script.FLEE)
+		if(Script.getInstance().actionDecider(UltimateBot) != Script.FLEE)
 		{
-			selim.getFSM().revertToPreviousState();
-			exit(selim, world);
+			UltimateBot.getFSM().revertToPreviousState();
+			exit(UltimateBot, world);
 		}
 		
 		// When Bot is fleeing, collect health and armor. 
-		if(selim.isHEALTH_LOW())
-			selim.pickUpHealth(world);
+		if(UltimateBot.isHEALTH_LOW())
+			UltimateBot.pickUpHealth(world);
 		
-		else if(selim.isAMMO_LOW())
-			selim.pickUpAmmo(world);	
+		else if(UltimateBot.isAMMO_LOW())
+			UltimateBot.pickUpAmmo(world);	
 	}
 
 	
 	@Override
-	public void exit(Selim selim, World world) 
+	public void exit(UltimateBot UltimateBot, World world) 
 	{
-		if(Selim.DEBUG_MODE) System.out.println("EXIT Flee STATE");
+		if(UltimateBot.DEBUG_MODE) System.out.println("EXIT Flee STATE");
 	}
 }

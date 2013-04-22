@@ -1,6 +1,6 @@
 package bot.state;
 
-import bot.Selim;
+import bot.UltimateBot;
 import soc.qase.state.World;
 
 /**
@@ -28,26 +28,26 @@ public class Idle extends State
 	}
 	
 	@Override
-	public void enter(Selim selim, World world)
+	public void enter(UltimateBot UltimateBot, World world)
 	{
-		if(Selim.DEBUG_MODE) System.out.println("ENTERED Idle STATE");
+		if(UltimateBot.DEBUG_MODE) System.out.println("ENTERED Idle STATE");
 	}
 
 	@Override
-	public void execute(Selim selim, World world)
+	public void execute(UltimateBot UltimateBot, World world)
 	{
-		if(Selim.DEBUG_MODE) System.out.println("EXECUTING Idle STATE");
+		if(UltimateBot.DEBUG_MODE) System.out.println("EXECUTING Idle STATE");
 		
 		// Idle state just waits for an enemy comes near. Coward's ambush tactic!!
-		//selim.waitEnemy(world);
+		//UltimateBot.waitEnemy(world);
 		
-		selim.findEnemy(world); // Same state as the Search Enemy.
+		UltimateBot.findEnemy(world); // Same state as the Search Enemy.
 	}
 
 	@Override
-	public void exit(Selim selim, World world)
+	public void exit(UltimateBot UltimateBot, World world)
 	{
-		if(Selim.DEBUG_MODE) System.out.println("EXIT Idle STATE");
+		if(UltimateBot.DEBUG_MODE) System.out.println("EXIT Idle STATE");
 		
 	}
 }

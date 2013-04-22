@@ -11,22 +11,22 @@ import soc.qase.ai.waypoint.Waypoint;
 import soc.qase.tools.vecmath.Vector3f;
 
 /**
-	SELIM bot is a Quake II bot. 
+	UltimateBot bot is a Quake II bot. 
 	It uses QASE API and BOTUtils class.
 
-	Compile with: javac botutils/Selim.java
-	Run with: java botutils.Selim [teamNumber]
+	Compile with: javac botutils/UltimateBot.java
+	Run with: java botutils.UltimateBot [teamNumber]
 
 	@since 2008-11-25
 	@author Daghan DEMIRCI <daghan.demirci@gmail.com>
  			Omer AKYOL <omer.akyol@gmail.com>
 */
-public class Selim extends BOTUtils
+public class UltimateBot extends BOTUtils
 {	
 	// Debug mode flag
 	public static final boolean DEBUG_MODE = true; // Enable/Disable debug outputs.
 	
-	// Selim's StateMachine, which handles and coordinates all states
+	// UltimateBot's StateMachine, which handles and coordinates all states
 	private StateMachine stateMachine;
 	
 	// A reference to singleton Script object
@@ -39,7 +39,7 @@ public class Selim extends BOTUtils
 	private Origin tempPosition = null;
 	private int waitLimit = 0;
 	
-	// Selim attributes and flags
+	// UltimateBot attributes and flags
 	private int MIN_AMMO;				// Minimum ammo value
 	private int MIN_HEALTH;				// Minimum health value
 	private int PREFERRED_WEAPON;		// Preferred weapon of the bot
@@ -62,20 +62,20 @@ public class Selim extends BOTUtils
 	
 	/**
 		Start the bot with:
-		java Selim [TeamNumber]
+		java UltimateBot [TeamNumber]
 		
-		@param args Selim arguments, i.e. team number (integer from 0 and up).
+		@param args UltimateBot arguments, i.e. team number (integer from 0 and up).
 	*/
 	public static void main(String[] args)
 	{	
 		if (args.length == 1)
 		{
-			Selim bot = new Selim("SELIM_ " + args[0], args[0]);
+			UltimateBot bot = new UltimateBot("UltimateBot_ " + args[0], args[0]);
 		}
 		
 		else
 		{
-			Selim bot = new Selim("SELIM_0", "0");
+			UltimateBot bot = new UltimateBot("UltimateBot_0", "0");
 		}
 	}
 	
@@ -83,12 +83,12 @@ public class Selim extends BOTUtils
 	/**
 		Constructor.
 		
-		@param botName Name of the bot, for example 'Selim'.
+		@param botName Name of the bot, for example 'UltimateBot'.
 		@param ctfTeam Team number for this bot. Integer from 0 and up.
 	*/
-	public Selim(String botName, String ctfTeam)
+	public UltimateBot(String botName, String ctfTeam)
 	{
-		super(botName, "male/chipher", ctfTeam, "localhost", "C:\\quake2", "qase.bsp", "deneme.dm2", 400);
+		super(botName, "male/chipher", ctfTeam, "localhost", "C:\\quake\\quake2", "qase.bsp", "deneme.dm2", 400);
 		
 		// Create Finite State Machine (FSM)
 		stateMachine = new StateMachine();
@@ -116,16 +116,16 @@ public class Selim extends BOTUtils
 		// Do not start AI loop before objects are not ready.
 		if(stateMachine != null && script != null)
 		{
-			// Update Selim's terminal flags. (See script file)
+			// Update UltimateBot's terminal flags. (See script file)
 			updateBotAttributes(world);
 			
 			// update FSM
 			stateMachine.update(this, world);
 			
-			// Check if Selim died or killed someone
+			// Check if UltimateBot died or killed someone
 			checkBotStatus(world);
 			
-			// If Selim is lost switch to Search Enemy state...
+			// If UltimateBot is lost switch to Search Enemy state...
 			if(isLost())
 			{
 				if(DEBUG_MODE) System.out.println("I STUCK SOMEWHERE!");
@@ -217,7 +217,7 @@ public class Selim extends BOTUtils
 	}
 	
 	
-	// Apply script file to Selim
+	// Apply script file to UltimateBot
 	private void applyScriptFile()
 	{
 		// Get attributes
@@ -263,7 +263,7 @@ public class Selim extends BOTUtils
 	}
 	
 	
-	// Updates Selim's all attributes. (all of the flags and attributes)
+	// Updates UltimateBot's all attributes. (all of the flags and attributes)
 	private void updateBotAttributes(World world)
 	{
 		int ammoCnt = world.getInventory().getCount(PREFERRED_AMMO);
@@ -326,7 +326,7 @@ public class Selim extends BOTUtils
 	}
 	
 	
-	// If Selim lost hiw way and stuck somewhere?
+	// If UltimateBot lost hiw way and stuck somewhere?
 	public boolean isLost()
 	{
 		if(tempPosition == getPosition())
@@ -340,8 +340,8 @@ public class Selim extends BOTUtils
 			tempPosition = getPosition();
 		}
 		
-		// If Selim waited somewhere in the map more than 5000 mili seconds
-		// then something is wrong and Selim got lost. 
+		// If UltimateBot waited somewhere in the map more than 5000 mili seconds
+		// then something is wrong and UltimateBot got lost. 
 		if(waitLimit > 50)// runAI is updated every 100 milisecs
 			return true;
 		
@@ -350,11 +350,11 @@ public class Selim extends BOTUtils
 	}
 
 	
-	// ATTACK action of Selim. 
+	// ATTACK action of UltimateBot. 
 	// It aims and attacks the nearest enemy
 	public void attack(World world, boolean attackFlag)
 	{
-		// If attackFlag is "true" Selim is permitted to atack
+		// If attackFlag is "true" UltimateBot is permitted to atack
 		if(attackFlag)
 		{
 			aimAtEnemy(world);
@@ -391,7 +391,7 @@ public class Selim extends BOTUtils
 	}
 	
 	
-	// Check if Selim died or fragged someone. 
+	// Check if UltimateBot died or fragged someone. 
 	// This method is implemented because isBotAlive() doesn't work correctly 
 	public boolean checkBotStatus(World world)
 	{
@@ -551,7 +551,7 @@ public class Selim extends BOTUtils
 	
 	
 	/**
-		Wait an enemy to come near Selim. If an enemy comes near, Selim engages
+		Wait an enemy to come near UltimateBot. If an enemy comes near, UltimateBot engages
 		towards him. If no enemy is found, it stays idle like a player who makes ambush.
 		
 		@param world Current game state.
@@ -828,7 +828,7 @@ public class Selim extends BOTUtils
 	
 	
 	// Try to get all the items in the map whether they are needed or not
-	// Currently not used by Selim. 
+	// Currently not used by UltimateBot. 
 	private void getallItems(World world)
 	{
 		Vector3f pos = new Vector3f(0, 0, 0);
@@ -915,4 +915,4 @@ public class Selim extends BOTUtils
 		return NO_ENEMY_IN_SIGHT;
 	}
 	
-}// Selim class
+}// UltimateBot class

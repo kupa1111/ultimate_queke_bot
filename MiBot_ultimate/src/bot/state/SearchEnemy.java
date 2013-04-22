@@ -1,7 +1,7 @@
 package bot.state;
 
 import bot.Script;
-import bot.Selim;
+import bot.UltimateBot;
 import soc.qase.state.World;
 
 /**
@@ -29,33 +29,33 @@ public class SearchEnemy extends State
 	}
 	
 	@Override
-	public void enter(Selim selim, World world)
+	public void enter(UltimateBot UltimateBot, World world)
 	{
-		if(Selim.DEBUG_MODE) System.out.println("ENTERED SearchEnemy STATE");
+		if(UltimateBot.DEBUG_MODE) System.out.println("ENTERED SearchEnemy STATE");
 	}
 
 	@Override
-	public void execute(Selim selim, World world)
+	public void execute(UltimateBot UltimateBot, World world)
 	{
-		if(Selim.DEBUG_MODE) System.out.println("EXECUTING SearchEnemy STATE");
+		if(UltimateBot.DEBUG_MODE) System.out.println("EXECUTING SearchEnemy STATE");
 		
 		// If Script says PATROL then try to find the enemy in the map
-		//if(Script.getInstance().actionDecider(selim) == Script.PATROL)
+		//if(Script.getInstance().actionDecider(UltimateBot) == Script.PATROL)
 
-		if(!selim.AT_CENTER)
-			selim.findEnemy(world);
+		if(!UltimateBot.AT_CENTER)
+			UltimateBot.findEnemy(world);
 		
 		else
-			selim.patrolEnemy(world);
+			UltimateBot.patrolEnemy(world);
 		
 		// Else if Script says IDLE then go to Idle state 
-		//else if(Script.getInstance().actionDecider(selim) == Script.IDLE)
-		//	selim.getFSM().changeState(Idle.getInstance());
+		//else if(Script.getInstance().actionDecider(UltimateBot) == Script.IDLE)
+		//	UltimateBot.getFSM().changeState(Idle.getInstance());
 	}
 
 	@Override
-	public void exit(Selim selim, World world)
+	public void exit(UltimateBot UltimateBot, World world)
 	{
-		if(Selim.DEBUG_MODE) System.out.println("EXIT SearchEnemy STATE");
+		if(UltimateBot.DEBUG_MODE) System.out.println("EXIT SearchEnemy STATE");
 	}
 }

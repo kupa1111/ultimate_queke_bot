@@ -1,6 +1,6 @@
 package bot.state;
 
-import bot.Selim;
+import bot.UltimateBot;
 import soc.qase.state.World;
 
 /**
@@ -29,29 +29,29 @@ public class CollectItem extends State
 	
 	
 	@Override
-	public void enter(Selim selim, World world)
+	public void enter(UltimateBot UltimateBot, World world)
 	{
-		if(Selim.DEBUG_MODE) System.out.println("ENTERED CollectItem STATE");
+		if(UltimateBot.DEBUG_MODE) System.out.println("ENTERED CollectItem STATE");
 	}
 
 	
 	@Override
-	public void execute(Selim selim, World world)
+	public void execute(UltimateBot UltimateBot, World world)
 	{
-		if(Selim.DEBUG_MODE) System.out.println("EXECUTING CollectItem STATE");
+		if(UltimateBot.DEBUG_MODE) System.out.println("EXECUTING CollectItem STATE");
 		
-		// If selim has all the items change state to SearchEnemy, else continue
-		if(selim.hasAllItems())	
-			selim.getFSM().changeState(SearchEnemy.getInstance());
+		// If UltimateBot has all the items change state to SearchEnemy, else continue
+		if(UltimateBot.hasAllItems())	
+			UltimateBot.getFSM().changeState(SearchEnemy.getInstance());
 		
 		else
-			selim.getItems(world);
+			UltimateBot.getItems(world);
 	}
 
 	
 	@Override
-	public void exit(Selim selim, World world)
+	public void exit(UltimateBot UltimateBot, World world)
 	{
-		if(Selim.DEBUG_MODE) System.out.println("EXIT CollectItem STATE");
+		if(UltimateBot.DEBUG_MODE) System.out.println("EXIT CollectItem STATE");
 	}
 }

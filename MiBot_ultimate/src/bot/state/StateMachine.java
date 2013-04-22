@@ -1,6 +1,6 @@
 package bot.state;
 
-import bot.Selim;
+import bot.UltimateBot;
 import soc.qase.state.World;
 
 /**
@@ -9,7 +9,7 @@ import soc.qase.state.World;
  * This is where all the state transitions are handled. 
  * 
  * changeState(State newState)
- * update(Selim selim, World world)
+ * update(UltimateBot UltimateBot, World world)
  * revertToPreviousState()
  * 
  * Methods are used to make the transitions between states. In some situations
@@ -24,7 +24,7 @@ public class StateMachine
 	protected State currentState;	// Current state which is currently executed.
 	protected State previousState;	// Previous state which was the previous current state.
 	protected State globalState;	// Global state which is executed all the time.
-	private Selim selim;
+	private UltimateBot UltimateBot;
 	private World world;
 	
 	/**
@@ -52,21 +52,21 @@ public class StateMachine
 		globalState = state;
 	}
 
-	public void update(Selim selim, World world)
+	public void update(UltimateBot UltimateBot, World world)
 	{
-		this.selim = selim;
+		this.UltimateBot = UltimateBot;
 		this.world = world;
 		
-		if(selim != null && selim.checkBotStatus(this.world)==false)
+		if(UltimateBot != null && UltimateBot.isAlive())
 		{
 			// Execute current state
 			if(currentState != null)
-				currentState.execute(selim, world);
+				currentState.execute(UltimateBot, world);
 			
 			// Attack is the global state.
 			// It is better to execute global state after current state.
 			if(globalState != null)
-				globalState.execute(selim, world);
+				globalState.execute(UltimateBot, world);
 		}
 		
 	}
@@ -74,9 +74,9 @@ public class StateMachine
 	public void changeState(State newState)
 	{
 		previousState = currentState;
-		currentState.exit(selim, world);
+		currentState.exit(UltimateBot, world);
 		currentState = newState;
-		currentState.enter(selim, world);
+		currentState.enter(UltimateBot, world);
 	}
 	
 	public void revertToPreviousState()

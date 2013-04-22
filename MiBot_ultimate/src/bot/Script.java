@@ -41,7 +41,7 @@ public class Script
 	
 	// Evaluates script rule list and returns an action
 	// Action types are defined in Script class.
-	public int actionDecider(Selim selim)
+	public int actionDecider(UltimateBot UltimateBot)
 	{
 		int resultAction = IDLE;
 		
@@ -53,37 +53,37 @@ public class Script
 				
 				if(tempStr.compareTo("AMMO_LOW") == 0)
 				{
-					if(!selim.isAMMO_LOW())
+					if(!UltimateBot.isAMMO_LOW())
 						break; // Condition not satisfied. 
 				}
 				
 				else if(tempStr.compareTo("AMMO_HIGH") == 0)
 				{
-					if(!selim.isAMMO_HIGH())
+					if(!UltimateBot.isAMMO_HIGH())
 						break; // Condition not satisfied. 
 				}
 				
 				else if(tempStr.compareTo("HEALTH_LOW") == 0)
 				{
-					if(!selim.isHEALTH_LOW())
+					if(!UltimateBot.isHEALTH_LOW())
 						break; // Condition not satisfied. 
 				}
 				
 				else if(tempStr.compareTo("HEALTH_HIGH") == 0)
 				{
-					if(!selim.isHEALTH_HIGH())
+					if(!UltimateBot.isHEALTH_HIGH())
 						break; // Condition not satisfied. 
 				}
 				
 				else if(tempStr.compareTo("ENEMY_IN_SIGHT") == 0)
 				{
-					if(!selim.isENEMY_IN_SIGHT())
+					if(!UltimateBot.isENEMY_IN_SIGHT())
 						break; // Condition not satisfied. 
 				}
 				
 				else if(tempStr.compareTo("NO_ENEMY_IN_SIGHT") == 0)
 				{
-					if(!selim.isNO_ENEMY_IN_SIGHT())
+					if(!UltimateBot.isNO_ENEMY_IN_SIGHT())
 						break; // Condition not satisfied. 
 				}
 				
@@ -190,7 +190,7 @@ public class Script
 		}
 		
 		// Test the script file if it is read correctly
-		if(Selim.DEBUG_MODE)
+		if(UltimateBot.DEBUG_MODE)
 			testLists();
 		
 	}// read()
